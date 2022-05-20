@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>filmsDetails</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="display:flex; justify-content: center; flex-direction: column;">
+    <div style="display:flex; justify-content: center; flex-direction:column; align-items: center; margin-top: 90px;">
+      <span style="font-size:30px; font-weight:bold; margin-bottom:70px;">
+        {{movie.release_date}}
+      </span>
+      <img src="https://image.tmdb.org/t/p/w220_and_h330_face/{{movie.poster_path}}">
+
+      <span>
+        {{movie.release_date}}
+      </span>
+      <span style=" margin-top: 90px;">
+        {{movie.overview}}
+      </span>
+    </div>
+  </div>
+</ion-content>
