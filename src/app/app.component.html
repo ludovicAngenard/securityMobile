@@ -1,6 +1,6 @@
 <ion-app>
   <ion-split-pane contentId="main-content">
-    <ion-menu contentId="main-content" type="overlay">
+    <ion-menu contentId="main-content" type="overlay" menu-id="first">
       <ion-content>
         <ion-list id="inbox-list">
           <ion-list-header>Films</ion-list-header>
@@ -15,6 +15,8 @@
         </ion-list>
       </ion-content>
     </ion-menu>
-    <ion-router-outlet id="main-content"></ion-router-outlet>
+    <ion-router-outlet id="main-content">
+
+    </ion-router-outlet>
   </ion-split-pane>
 </ion-app>
