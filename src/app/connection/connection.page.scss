@@ -1,0 +1,13 @@
+ion-input{
+    border-bottom: solid 1px grey;
+    margin-bottom:3rem;
+}
+ion-input:focus{
+    border-bottom: solid 1px orange;
+}
+ion-button{
+    margin-top:3rem;
+}
+span{
+    cursor: pointer;
+}

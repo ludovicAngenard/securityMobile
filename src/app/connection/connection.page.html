@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Je me connecte</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+    <div *ngIf="already_exist && !is_connecting">
+      <p color="warning">
+        Cette adresse mail est déjà associée à un compte !
+      </p>
+    </div>
+    <div *ngIf="unfound_mail && is_connecting">
+      <p color="warning">
+        Aucun compte n'a été créé avec cette adresse mail
+      </p>
+    </div>
+    <form>
+      <ion-label>
+        Mon email :
+      </ion-label>
+      <ion-input  id="email" required>
+      </ion-input>
+      <ion-label>
+        Mon mot de passe :
+      </ion-label>
+      <ion-input type='password'  id="password" required>
+      </ion-input>
+      <div *ngIf="!is_connecting">
+        <ion-label>
+          Je confirme mon mot de passe :
+        </ion-label>
+        <ion-input type='password'  id="confirm-password" required>
+        </ion-input>
+        <span class="ion-margin-top" (click)="toggleForm()">
+          J'ai déjà un compte, je souhaite me connecter !
+        </span>
+        <ion-button type="submit" expand="block"  (click)="register()">
+          Je m'inscris
+        </ion-button>
+      </div>
+      <div *ngIf="is_connecting">
+        <span class="ion-margin-top" (click)="toggleForm()">
+          Je n'ai pas encore de compte, je veux m'inscrire !
+        </span>
+        <ion-button type="submit" expand="block"  (click)="connect()">
+          Je me connecte
+        </ion-button>
+      </div>
+    </form>
+  </div>
+</ion-content>

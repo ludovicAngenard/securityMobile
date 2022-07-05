@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "mobileSecurity",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
