@@ -9,11 +9,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./connection.page.scss'],
 })
 
-// export class User {
-//   email: string;
-//   password: string;
-// }
-
 export class ConnectionPage implements OnInit {
   endpoint = 'http://localhost:8080/users';
   httpOptions = {
@@ -72,8 +67,10 @@ export class ConnectionPage implements OnInit {
     const tryConfirmPassword = document.getElementById('password') as HTMLInputElement | null;
     if ((tryConfirmPassword != null) && ( tryConfirmPassword.value == this.password)) {
       let current_user = {password: this.password, email: this.email}
+      console.log(this.getUser(this.email))
       if (Object.entries(this.getUser(this.email)).length === 0){
         this.users.push(current_user);
+        localStorage.setItem('current_user', JSON.stringify(current_user));
         localStorage.setItem('users', JSON.stringify(this.users));
         this.router.navigate(['/welcome'])
       }
@@ -87,10 +84,16 @@ export class ConnectionPage implements OnInit {
     this.is_connecting = !this.is_connecting;
   }
   ngOnInit() {
-    this.users = [];
+    if (!localStorage.getItem('users') ){
+      this.users = [];
+      localStorage.setItem('users', JSON.stringify(this.users));
+    } else {
+      this.users = JSON.parse(localStorage.getItem('users'))
+    }
+
     this.already_exist = false;
     this.is_connecting = true;
-    localStorage.setItem('users', JSON.stringify(this.users));
+
   }
 
 }
